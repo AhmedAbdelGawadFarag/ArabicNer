@@ -24,7 +24,7 @@ def get_caller_name_endpoint():
 
 @app.route('/', methods=['GET'])
 def hello_world_endpoint():
-    return json.dumps({"message": "hello world"})
+    return json.dumps({"message": "hello world this is arabic virtual assistant team :D"})
 
 
 if __name__ == '__main__':
