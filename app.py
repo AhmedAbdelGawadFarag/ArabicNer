@@ -7,7 +7,7 @@ from colored_exception import logException
 app = Flask(__name__)
 
 
-@app.route('/callerName', methods=['POST'])
+@app.route('/callContact', methods=['POST'])
 def get_caller_name_endpoint():
     try:
         text = request.get_json()['text']
