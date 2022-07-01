@@ -1,4 +1,4 @@
-import tagger
+from ner_model import tagger
 from transformers import AutoModelForTokenClassification, AutoTokenizer
 import pyarabic.araby as araby
 

@@ -1,8 +1,9 @@
 import json
 
 from flask import Flask, request, make_response
-from call_contact import get_caller_name
-from colored_exception import logException
+from assistant_functions.call_contact import get_caller_name
+from helpers.colored_exception import logException
+from helpers.arabic_date_time import DateTimeExtractor
 
 app = Flask(__name__)
 
@@ -18,13 +19,24 @@ def get_caller_name_endpoint():
         return json.dumps({"data": name})
 
     except Exception as e:
-        logException(str(e))
-        return json.dumps({"exception": str(e)})
+        logException(e)
+        return json.dumps({"Exception": str(e)})
 
 
 @app.route('/', methods=['GET'])
 def hello_world_endpoint():
     return json.dumps({"message": "hello world this is arabic virtual assistant team :D"})
+
+
+@app.route('/test_date', methods=['POST'])
+def test_date():
+    try:
+        text = request.get_json()['text']
+        print(DateTimeExtractor().extract(text))
+        return json.dumps(DateTimeExtractor().extract(text))
+    except Exception as e:
+        logException(e)
+        return json.dumps({"Exception": str(e)})
 
 
 if __name__ == '__main__':

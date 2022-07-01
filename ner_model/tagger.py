@@ -1,4 +1,4 @@
-from helpers import preprocess, postprocess
+from ner_model.helpers import preprocess, postprocess
 import torch
 import numpy as np
 
