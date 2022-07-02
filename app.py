@@ -8,8 +8,8 @@ from helpers.arabic_date_time import DateTimeExtractor
 app = Flask(__name__)
 
 
-@app.route('/callContact', methods=['POST'])
-def get_caller_name_endpoint():
+@app.route('/get_name', methods=['POST'])
+def get_name_endpoint():
     try:
         text = request.get_json()['text']
         print("text is" + text)
@@ -28,7 +28,7 @@ def hello_world_endpoint():
     return json.dumps({"message": "hello world this is arabic virtual assistant team :D"})
 
 
-@app.route('/test_date', methods=['POST'])
+@app.route('/get_date', methods=['POST'])
 def test_date():
     try:
         text = request.get_json()['text']
